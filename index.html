@@ -1,1 +1,84 @@
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈️ TravelMate - Планировщик путешествий</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка приложения -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1><i class="fas fa-plane"></i> TravelMate</h1>
+                <p class="tagline">Ваш умный помощник в путешествиях</p>
+            </div>
+        </header>
 
+        <!-- Основной контент -->
+        <main class="main-content">
+            <!-- Быстрые действия -->
+            <section class="quick-actions">
+                <h2><i class="fas fa-bolt"></i> Быстрые действия</h2>
+                <div class="action-grid">
+                    <button class="action-btn" id="new-trip-btn">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Новая поездка</span>
+                    </button>
+                    <button class="action-btn" id="weather-btn">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>Погода</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Форма создания поездки -->
+            <section class="trip-form" id="trip-form" style="display: none;">
+                <h2><i class="fas fa-suitcase-rolling"></i> Новая поездка</h2>
+                <div class="form-group">
+                    <label for="trip-name"><i class="fas fa-pencil-alt"></i> Название</label>
+                    <input type="text" id="trip-name" placeholder="Отпуск в Турции" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="destination"><i class="fas fa-map-pin"></i> Направление</label>
+                    <input type="text" id="destination" placeholder="Куда едем?" class="form-input">
+                </div>
+                <div class="form-buttons">
+                    <button class="btn-secondary" id="cancel-btn">Отмена</button>
+                    <button class="btn-primary" id="save-trip-btn">Сохранить</button>
+                </div>
+            </section>
+
+            <!-- Список поездок -->
+            <section class="trips-section">
+                <h2><i class="fas fa-list-ul"></i> Мои поездки</h2>
+                <div class="trips-list" id="trips-list">
+                    <div class="trip-card">
+                        <div class="trip-header">
+                            <h3>Пример поездки</h3>
+                            <span class="trip-status active">Активна</span>
+                        </div>
+                        <div class="trip-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Анталия, Турция</p>
+                            <p><i class="fas fa-calendar"></i> 10-25 августа 2024</p>
+                            <p><i class="fas fa-dollar-sign"></i> Бюджет: $1,500</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Уведомление -->
+        <div class="notification" id="notification">
+            <span id="notification-text"></span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+EOF
