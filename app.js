@@ -139,4 +139,6 @@ function getUserInfo() {
 // Пример использования данных пользователя
 const user = getUserInfo();
 if (user) {
-    console.log('Пользователь
+    console.log('Пользователь Telegram:', user);
+}
+EOF
